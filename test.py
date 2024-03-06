@@ -1,11 +1,14 @@
+
 """Este módulo contiene las pruebas unitarias para la aplicación de comercio electrónico."""
 
 import functions
+
 
 # Test for check_number_status
 assert functions.check_number_status(1) == "Positive"
 assert functions.check_number_status(0) == "Zero"
 assert functions.check_number_status(-1) == "Negative"
+
 
 # Test for calculate_total_discount
 assert functions.calculate_total_discount(100) == 10
