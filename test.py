@@ -1,3 +1,5 @@
+"""Este módulo contiene las pruebas unitarias para la aplicación de comercio electrónico."""
+
 import functions
 
 # Test for check_number_status
