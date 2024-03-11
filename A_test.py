@@ -1,4 +1,8 @@
-"Fuck you"
+# -*- coding: utf-8 -*-
+
+"""
+ White-box unit testing examples.
+"""
 
 import functions
 
@@ -50,3 +54,7 @@ def test_validate_login_usernameLength():
 def test_validate_login_passwordLength():
     assert functions.validate_login('Aldai', '12345678') == 'Login Successful'
     assert functions.validate_login('Aldai', '1234567') == 'Login Failed'
+
+
+#
+
