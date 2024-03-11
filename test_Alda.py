@@ -16,16 +16,16 @@ import functions
 #     assert functions.validate_password('Aa@1234') == False
 
 # def test_validate_password_withoutUppercase():
-#     assert functions.validate_password('a@123456') == False 
+#     assert functions.validate_password('a@123456') == False
 
 # def test_validate_password_withoutLowercase():
-#     assert functions.validate_password('A@123456') == False 
+#     assert functions.validate_password('A@123456') == False
 
 # def test_validate_password_withoutDigit():
-#     assert functions.validate_password('Aa@aaaaa') == False 
+#     assert functions.validate_password('Aa@aaaaa') == False
 
 # def test_validate_password_withoutSpecialCharacter():
-#     assert functions.validate_password('Aa123456') == False 
+#     assert functions.validate_password('Aa123456') == False
 
 
 # #4
