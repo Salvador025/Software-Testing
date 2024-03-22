@@ -555,6 +555,9 @@ class BankAccount:  # pylint: disable=too-few-public-methods
         """
         print(f"The account {self.account_number} has a balance of {self.balance}")
 
+        return True
+
+
 
 class BankingSystem:
     """
