@@ -5,49 +5,6 @@
 """
 import re
 
-
-def is_even(num):
-    """
-    Checks if a number is even.
-    """
-    return num % 2 == 0
-
-
-def divide(a, b):
-    """
-    Simple division function.
-    """
-    result = 0
-    if b != 0:
-        result = a / b
-    return result
-
-
-def get_grade(score):
-    """
-    Grade function.
-    """
-    if score >= 90:
-        grade = "A"
-    elif score >= 80:
-        grade = "B"
-    elif score >= 70:
-        grade = "C"
-    else:
-        grade = "F"
-    return grade
-
-
-def is_triangle(a, b, c):
-    """
-    Determines if 3 numbers can form a triangle.
-    """
-    if a + b > c and a + c > b and b + c > a:
-        return "Yes, it's a triangle!"
-
-    return "No, it's not a triangle."
-
-
 # 1
 def check_number_status(number):
     """
@@ -633,56 +590,3 @@ class Product:  # pylint: disable=too-few-public-methods
         Function to display the product details.
         """
         print(f"The product {self.name} has a price of {self.price}")
-
-
-class ShoppingCart:
-    """
-    Shopping cart class.
-    """
-
-    def __init__(self):
-        """
-        Initialize the shopping cart.
-        """
-        self.items = []
-
-    def add_product(self, product, quantity=1):
-        """
-        Function to add a product to the shopping cart.
-        """
-        for item in self.items:
-            if item["product"] == product:
-                item["quantity"] += quantity
-                break
-        else:
-            self.items.append({"product": product, "quantity": quantity})
-
-    def remove_product(self, product, quantity=1):
-        """
-        Function to remove a product from the shopping cart.
-        """
-        for item in self.items:
-            if item["product"] == product:
-                if item["quantity"] <= quantity:
-                    self.items.remove(item)
-                else:
-                    item["quantity"] -= quantity
-                break
-
-    def view_cart(self):
-        """
-        Function to display the shopping cart content.
-        """
-        for item in self.items:
-            print(
-                f"{item['quantity']} x {item['product'].name}"
-                f" - ${item['product'].price * item['quantity']}"
-            )
-
-    def checkout(self):
-        """
-        Function to checkout the items from the shopping cart.
-        """
-        total = sum(item["product"].price * item["quantity"] for item in self.items)
-        print(f"Total: ${total}")
-        print("Checkout completed. Thank you for shopping!")

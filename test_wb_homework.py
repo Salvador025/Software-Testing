@@ -5,9 +5,36 @@ import unittest
 from unittest import TestCase, mock
 import io
 
-from wb_homework import *;
-
-
+from wb_homework import (
+    check_number_status,
+    validate_password,
+    calculate_total_discount,
+    calculate_order_total,
+    calculate_items_shipping_cost,
+    validate_login,
+    verify_age,
+    categorize_product,
+    validate_email,
+    celsius_to_fahrenheit,
+    validate_credit_card,
+    validate_date,
+    check_flight_eligibility,
+    validate_url,
+    calculate_quantity_discount,
+    check_file_size,
+    check_loan_eligibility,
+    calculate_shipping_cost,
+    grade_quiz,
+    authenticate_user,
+    get_weather_advisory,
+    VendingMachine,
+    TrafficLight,
+    UserAuthentication,
+    DocumentEditingSystem,
+    ElevatorSystem,
+    BankingSystem,
+    Product
+)
 
 class TestCheckNumberStatus(unittest.TestCase):
     """
@@ -31,7 +58,7 @@ class TestCheckNumberStatus(unittest.TestCase):
         """
         self.assertEqual(check_number_status(0), "Zero")
 
-class Test_validate_password(unittest.TestCase):
+class TestValidatePassword(unittest.TestCase):
     """
     White-box unittest class.
     """
@@ -46,20 +73,11 @@ class Test_validate_password(unittest.TestCase):
         Checks the password is invalid no uppecase letter.
         """
         self.assertFalse(validate_password("password123!"))
-        """
-        Checks the password is invalid no lowercaseletter .
-        """
         self.assertFalse(validate_password("PASSWORD123!"))
-        """
-        Checks the password is invalid no number.
-        """
         self.assertFalse(validate_password("Password!"))
-        """
-        Checks the password is invalid no special character.
-        """
         self.assertFalse(validate_password("Password123"))
 
-class Test_calculate_total_discount(unittest.TestCase):
+class TestCalculateTotalDiscount(unittest.TestCase):
     """
     White-box unittest class.
     """
@@ -123,7 +141,9 @@ class TestCalculateOrderTotal(unittest.TestCase):
         """
         Test multiple items with different quantities.
         """
-        items = [{"quantity": 3, "price": 10}, {"quantity": 7, "price": 20}, {"quantity": 15, "price": 5}]
+        items = [{"quantity": 3, "price": 10},
+                 {"quantity": 7, "price": 20},
+                 {"quantity": 15, "price": 5}]
         # No discount for first item, 5% discount for second, 10% discount for third
         expected_total = (3 * 10) + (7 * 20 * 0.95) + (15 * 5 * 0.9)
         self.assertAlmostEqual(calculate_order_total(items), expected_total)
@@ -499,34 +519,6 @@ class TestCheckLoanEligibility(unittest.TestCase):
     """
     def test_not_eligible_low_income(self):
         """
-        Test ineligibility due to low income.
-        """
-        self.assertEqual(check_loan_eligibility(25000, 720), "Not Eligible")
-
-    def test_secured_loan(self):
-        """
-        Test eligibility for a secured loan.
-        """
-        self.assertEqual(check_loan_eligibility(40000, 700), "Secured Loan")
-
-    def test_standard_loan_high_income_low_score(self):
-        """
-        Test eligibility for a standard loan.
-        """
-        self.assertEqual(check_loan_eligibility(70000, 720), "Standard Loan")
-
-    def test_premium_loan(self):
-        """
-        Test eligibility for a premium loan.
-        """
-        self.assertEqual(check_loan_eligibility(80000, 760), "Premium Loan")
-
-class TestCheckLoanEligibility(unittest.TestCase):
-    """
-    Class for testing the check_loan_eligibility function.
-    """
-    def test_not_eligible_low_income(self):
-        """
         test not eligible low income
         """
         self.assertEqual(check_loan_eligibility(25000, 720), "Not Eligible")
@@ -623,7 +615,8 @@ class TestGetWeatherAdvisory(unittest.TestCase):
         """
         Test high temperature and humidity.
         """
-        self.assertEqual(get_weather_advisory(35, 75), "High Temperature and Humidity. Stay Hydrated.")
+        self.assertEqual(get_weather_advisory(35, 75),
+                        "High Temperature and Humidity. Stay Hydrated.")
 
     def test_low_temperature(self):
         """
@@ -863,7 +856,8 @@ class TestBankingSystem(unittest.TestCase):
         Test transferring money with an invalid transaction type.
         """
         self.banking_system.authenticate("user123", "pass123")
-        self.assertFalse(self.banking_system.transfer_money("user123", "receiver", 100, "invalid_type"))
+        self.assertFalse(self.banking_system.transfer_money
+                        ("user123", "receiver", 100, "invalid_type"))
 
     def test_transfer_money_insufficient_funds(self):
         """
@@ -895,7 +889,8 @@ class TestProduct(TestCase):
         Test the view_product method.
         """
         self.product.view_product()
-        self.assertEqual(mock_stdout.getvalue().strip(), "The product Test Product has a price of 100")
+        self.assertEqual(mock_stdout.getvalue().strip(),
+                        "The product Test Product has a price of 100")
 
 if __name__ == "__main__":
     unittest.main()
