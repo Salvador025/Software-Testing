@@ -5,19 +5,19 @@ print("Test check_number_status")
 
 def test_validate_password_lenght():
     assert functions.validate_password('Aa@12345') == True
-    assert functions.validate_password('Aa@1234') == False 
+    assert functions.validate_password('Aa@1234') == False
 
 def test_validate_password_withoutUppercase():
-    assert functions.validate_password('a@123456') == False 
+    assert functions.validate_password('a@123456') == False
 
 def test_validate_password_withoutLowercase():
-    assert functions.validate_password('A@123456') == False 
+    assert functions.validate_password('A@123456') == False
 
 def test_validate_password_withoutDigit():
-    assert functions.validate_password('Aa@aaaaa') == False 
+    assert functions.validate_password('Aa@aaaaa') == False
 
 def test_validate_password_withoutSpecialCharacter():
-    assert functions.validate_password('Aa123456') == False 
+    assert functions.validate_password('Aa123456') == False
 
 
 #4
@@ -48,6 +48,3 @@ def test_validate_login_usernameLength():
 def test_validate_login_passwordLength():
     assert functions.validate_login('Aldai', '12345678') == 'Login Successful'
     assert functions.validate_login('Aldai', '1234567') == 'Login Failed'
-
-
-

@@ -45,5 +45,3 @@ def test_transfer_money_system():
     assert system.transfer_money("user123", "user1", 500, "scheduled") == True
     assert system.transfer_money("user123", "user1", 500, "fast") == False
     assert system.transfer_money("user123", "user1", 1100, "regular") == False
-    
-
