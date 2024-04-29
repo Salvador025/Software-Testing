@@ -55,13 +55,13 @@ class TestTimeBasedAction(unittest.TestCase):
     """Test time-based action functionality."""
 
     @patch("time.time", return_value=5)
-    def test_perform_action_based_on_time_action_a(self, mock_time):
+    def test_perform_action_based_on_time_action_a(self, result):
         """Test that 'Action A' is performed when current time is less than 10."""
         result = perform_action_based_on_time()
         self.assertEqual(result, "Action A")
 
     @patch("time.time", return_value=11)
-    def test_perform_action_based_on_time_action_b(self, mock_time):
+    def test_perform_action_based_on_time_action_b(self, result):
         """Test that 'Action B' is performed when current time is 10 or more."""
         result = perform_action_based_on_time()
         self.assertEqual(result, "Action B")
